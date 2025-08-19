@@ -1,0 +1,1442 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    cursor: none;
+    /* white-space: inherit; */
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1280px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+/* cursor animated start  */
+.cursor {
+  width: 20px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: 0 0 10px 4px red;
+  animation: glow 3s linear infinite;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+@keyframes glow {
+  0%   { box-shadow: 0 0 8px 3px red; }
+  20%  { box-shadow: 0 0 8px 3px orange; }
+  40%  { box-shadow: 0 0 8px 3px yellow; }
+  60%  { box-shadow: 0 0 8px 3px green; }
+  80%  { box-shadow: 0 0 8px 3px blue; }
+  100% { box-shadow: 0 0 8px 3px violet; }
+}
+
+/* cursor animated end  */
+
+/* mobile use website */
+.responsive-header{
+    display: none;
+}
+.cart-icon1{
+    display: none;
+}
+.logo-top{
+    display: none;
+}
+ .header .logo {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .header .logo span {
+        color: #e6007e;
+    }
+
+    .header .left,
+    .header .right {
+        display: flex;
+        align-items: center;
+    }
+
+    .header i {
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    .cart-badge {
+        background: #e6007e;
+        color: white;
+        font-size: 10px;
+        padding: 2px 5px;
+        border-radius: 50%;
+        position: relative;
+        top: -10px;
+        right: 10px;
+    }
+
+    /* Sidebar  */
+    .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 92%;
+    max-width: 420px;
+    height: 100vh;
+    background: white;
+    z-index: 999;
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        margin-top: 20px;
+    }
+
+    .sidebar ul li {
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 16px;
+    }
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu-icon {
+      font-size: 26px;
+      padding: 16px;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 85%;
+      max-width: 420px;
+      height: 100vh;
+      background: white;
+      z-index: 999;
+      overflow-y: auto;
+      transition: left 0.3s ease;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+
+    #menu-toggle:checked + .sidebar {
+      left: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .tabs {
+      display: flex;
+      width: 100%;
+    }
+
+    .tabs label {
+      flex: 1;
+      text-align: center;
+      padding: 10px 0;
+      font-weight: bold;
+      cursor: pointer;
+      color: #aaa;
+      border-bottom: 2px solid transparent;
+    }
+
+    input[name="tab"] {
+      display: none;
+    }
+
+    #tab-menu:checked ~ .tabs label[for="tab-menu"],
+    #tab-cat:checked ~ .tabs label[for="tab-cat"] {
+      color: #e6007e;
+      border-bottom: 2px solid #e6007e;
+    }
+
+    .close-btn {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 2rem;
+}
+
+    .tab-content {
+      padding: 10px 20px;
+    }
+
+    .tab-content ul {
+      list-style: none;
+    }
+
+    .tab-content li {
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .tab-content li.active {
+      color: #e6007e;
+      font-weight: bold;
+    }
+
+    .wishlist::before { content: "♡ "; }
+    .login::before { content: "👤 "; }
+
+    /* Show tab content */
+
+    #tab-menu:checked ~ .menu-content {
+      display: block;
+    }
+
+    #tab-cat:checked ~ .cat-content {
+      display: block;
+    }
+
+    /* Overlay (optional) */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0,0,0,0.3);
+      z-index: 998;
+    }
+
+    #menu-toggle:checked ~ .overlay {
+      display: block;
+    }
+
+
+
+
+.top-header {
+    width: 100%;
+}
+
+.topbar-row {
+    height: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-contant {
+
+    display: inline-flex;
+    justify-content: right;
+    float: right;
+}
+
+.text {
+    font-size: 1rem;
+    color: #5B5A5A;
+    padding: 15px;
+}
+
+.right-contant {
+    align-items: center;
+    padding: 10px;
+    font-size: 1rem;
+    color: gray;
+    /* width: 500px; */
+}
+
+.right-contant a {
+    text-decoration: none;
+    color: gray;
+}
+
+.topbar-icon {
+    display: flex;
+    align-items: center;
+}
+
+.number {
+
+    padding: 10px;
+    font-size: 16px;
+    font-family: roboto;
+    word-spacing: 6px;
+    transition: .5s;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: antiquewhite;
+    color: black;
+    padding: 0.2rem 1rem;
+    left: 56%;
+    transform: translateX(-50%);
+    top: 7px;
+    will-change: transform;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    color: red;
+    margin-left: 1px;
+    margin-top: -3px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #888;
+}
+
+.tooltip-email {
+   display: none;
+}
+
+.number:hover .tooltip {
+    opacity: 1;
+}
+
+.number i {
+    padding: 5px;
+
+}
+
+.email {
+    font-size: 16px;
+    font-family: roboto;
+}
+
+.email i {
+    padding: 5px;
+}
+
+/* Start main nav bar with logo section */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(232, 232, 232, 1);
+    width: 100%;
+}
+
+/*  selector and input section */
+img {
+    width: 260px;
+}
+
+.search {
+    display: flex;
+    border-radius: 4px;
+    border: 1px solid #848484;
+    height: 48px;
+
+}
+
+.search:hover {
+    border-color: red;
+     animation: search-color 10s linear infinite;
+
+}
+@keyframes search-color {
+    0%{
+         border-color: red;
+    }
+    50%{
+         border-color: rgb(72, 255, 0);
+    }
+    100%{
+         border-color: rgb(0, 55, 255);
+    }
+}
+
+.nav-select {
+    background-color: white;
+    text-align: center;
+    border: none;
+    border-right: 1px solid #848484;
+    outline: none;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    width: 8.4rem;
+    color: #5B5A5A;
+    padding: 5px 4px;
+}
+
+select option:hover {
+    color: #f0c040;
+    /* yellowish hover */
+    cursor: pointer;
+}
+
+.nav-select i {
+    float: none;
+}
+
+.search-form {
+    display: flex;
+}
+
+
+/*dropdown menu */
+.menu {
+    position: relative;
+    display: inline-block;
+
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    margin-top: 1.4rem;
+    z-index: 1;
+    color: #161A30;
+    background-color: white;
+    width: 19rem;
+    border: 1px solid #848484;
+    box-shadow: gray;
+    text-align: left;
+    padding: 0 20px;
+    line-height: 1.6rem;
+    right: -10.4rem;
+}
+
+.panel-productrang:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    text-decoration: none;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 0.7rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: whitesmoke;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #161A30;
+}
+
+.dropdown-menu ul li:hover {
+    color: red;
+}
+
+.dropdown-menu i.material-icons {
+    float: right;
+}
+
+.options {
+    margin-left: 8rem;
+    position: relative;
+}
+
+.search-ops {
+    font-size: 12px;
+    text-align: left;
+}
+
+.nav-select option:hover {
+    color: none;
+}
+
+.search-input {
+    width: 407px;
+    padding: 20px;
+}
+
+input.search-input {
+    border: 1px;
+    outline: none;
+}
+
+.search-btn {
+    width: 84px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: none;
+    border: 1px;
+    background-color: #DF1869;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 9px;
+    border-radius: 6px;
+    border: none;
+    font-family: arial;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.s-btn {
+    margin: 0 auto;
+    padding: 5px 5px;
+}
+
+.search-btn:hover {
+    color: rgb(255, 255, 255);
+    background-color: blue;
+    box-shadow: 0 4px 9px 0 red;
+}
+
+.options a {
+    text-decoration: none;
+    color: hotpink;
+    width: 50px;
+    padding: 10px;
+}
+
+p.view-product a {
+    color: #777777;
+    font-size: 16px;
+    font-family: roboto, arial, helvetica;
+}
+
+p.view-product a:hover {
+    color: #e6007e;
+    ;
+}
+
+.panel {
+    background-color: white;
+    display: flex;
+    color: rgb(0, 0, 0);
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-family: Roboto;
+    color: #777777;
+}
+
+.options ul li {
+    display: inline;
+    margin-left: 10px;
+    list-style: none;
+}
+
+.options a i {
+    float: none;
+    position: absolute;
+    bottom: 0;
+    top: 1.1rem;
+    opacity: 0.4;
+}
+
+/* PANEL START */
+.panel-productrang {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.panel-productrang:hover {
+    color: red;
+}
+
+.panel-productrang p {
+    padding: 10px;
+}
+
+.panel-icon {
+    position: relative;
+    font-size: 19px;
+}
+
+.badge {
+    position: absolute;
+    /* top: -13px; */
+    bottom: 0.58rem;
+    right: -8px;
+    background-color: #fd1377;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 9px;
+    font-size: 10px;
+}
+
+.user-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+}
+
+.user-icon:hover {
+    color: lightgray;
+}
+
+.wishes-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.wishes-icon:hover {
+    color: lightgray;
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.cart-icon:hover {
+    color: lightgray;
+}
+
+.badge-shoping {
+    position: absolute;
+    top: -9px;
+    bottom: 10px;
+    background-color: #fd1377;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 10px;
+    font-size: 10px;
+    left: 1.2rem;
+}
+
+.panel-icon {
+    display: flex;
+    width: 65px;
+}
+
+.amount {
+    font-size: small;
+}
+
+.options a {
+    color: black;
+    text-decoration: none;
+}
+
+.view-product a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+}
+
+/*  Coding of main content this website */
+.main-content {
+    width: 100%;
+    height: 400px;
+}
+
+.content {
+    background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/Blog_Post_5-860x331.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    position: relative;
+    animation: changeimg 10s linear infinite;
+}
+
+@keyframes changeimg {
+    0% {
+        background-image: url("https://www.chhooze.com/wp-content/uploads/2024/02/footer_logo-1.png");
+    }
+
+    25% {
+        background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/L1D1_Rusty_2-430x645.webp");
+    }
+
+    50% {
+        background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/Blog_Post_6-860x331.jpg");
+    }
+
+    75% {
+        background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/Blog_Post_5-860x331.jpg");
+    }
+
+    100% {
+        background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/Blog_Post_6-860x331.jpg");
+    }
+}
+
+.Product-text {
+    text-align: justify;
+    position: absolute;
+
+    top: 3rem;
+    color: white;
+    line-height: 40px;
+}
+
+.Product-text p {
+    font-size: 30px;
+    text-align: justify;
+
+    text-transform: uppercase;
+}
+
+.Product-text h2 {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 4.8rem;
+}
+
+button {
+    border: none;
+}
+
+.btn-shop {
+    padding: 15px 20px;
+    background-color: #e6007e;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    position: absolute;
+    bottom: -3rem;
+    word-spacing: 0.3rem;
+    font-size: 1rem;
+}
+
+.btn-shop:hover {
+    color: white;
+    background-color: blue;
+    box-shadow: 0 4px 9px 0 red;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 5rem;
+    font-weight: 600;
+}
+
+.Product-text h2 {
+    font-size: 3rem;
+    text-align: justify;
+}
+
+.page-select {
+    border: none;
+}
+
+.dropdown {
+    display: none;
+}
+
+ul li:hover .dropdown {
+    display: block;
+    position: absolute;
+    margin-top: 0.72rem;
+    right: -1rem;
+    z-index: 1;
+    color: #161A30;
+    background-color: white;
+    border: 1px solid #848484;
+    border-top: none;
+    box-shadow: gray;
+    text-align: left;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 20px;
+    line-height: 2rem;
+}
+
+.dropdown li a:hover {
+    color: #e6007e;
+
+}
+
+.dropdown ul li {
+    display: block;
+    color: #161A30;
+}
+
+.dropdown ul li:hover {
+    color: red;
+}
+
+.options li a {
+    color: #161A30;
+}
+
+.features {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 34px 20px;
+    background-color: #f9f9f9;
+}
+
+.feature-head {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 7rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature h3 {
+    color: #242424;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: justify;
+}
+
+.feature p {
+    color: #5B5A5A;
+    font-size: 18px;
+}
+
+
+.delivery {
+    display: grid;
+    justify-self: unset;
+    align-items: center;
+    position: absolute;
+    left: 3.9rem;
+    font-size: 2.3rem;
+}
+.delivery:hover {
+    color: lightgray;
+}
+
+.wallet {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    font-size: 2.3rem;
+    margin-left: -3.87rem;
+}
+.wallet:hover {
+    color: lightgray;
+}
+
+.feature i {
+    float: none;
+}
+
+.dress {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    font-size: 2.2rem;
+    margin-left: -4.3rem;
+}
+.dress:hover {
+    color: lightgray;
+}
+
+.support i {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    font-size: 3rem;
+    margin-left: -4.2rem;
+}
+.support:hover {
+    color: lightgray;
+}
+
+/* Shop section box */
+.shop-heding h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+}
+
+.shop-section {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+}
+
+.shop-box {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.6rem;
+    margin-bottom: 6.6rem;
+}
+
+.shop-link ul li {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+.shop-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.first-link {
+    color: black;
+    font-size: 16px;
+    border-bottom: 3px solid black;
+    cursor: pointer;
+}
+
+.links {
+    color: #5B5A5A;
+    transition: 0.9s ease;
+    cursor: pointer;
+}
+
+.animated-link {
+    color: #5B5A5A;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.animated-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: rgb(0, 0, 0);
+    transition: width 0.9s ease;
+    /* Smooth forward and reverse */
+}
+
+.animated-link:hover::before {
+    width: 100%;
+}
+
+.product-box {
+    width: 210px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 25px 10px 20px 10px;
+    position: relative;
+    box-shadow: 0 9px 9px 0 black;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+img.img-default {
+    width: 210px;
+
+}
+
+.image-container1 {
+
+    width: 100%;
+    height: 310px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-container img {
+    width: 234px;
+    height: 351px;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+}
+
+.image-container1:hover {
+    background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/L5D3_Yellow_Black_2-430x645.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+     box-shadow: 0 4px 9px 0 red;
+}
+
+.product-box:hover .img-default {
+   opacity: 0;
+    transform: scale(1.2);
+    transition-duration: 3s;
+     
+}
+.product-box:hover{
+box-shadow: 0 6px 10px 0 rgb(30, 255, 0);
+}
+
+.image-container2 {
+    cursor: pointer;
+     overflow: hidden;
+}
+
+.image-container2:hover {
+    background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/L3D4T_L3D5S_2-430x645.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+     box-shadow: 0 4px 9px 0 red;
+}
+
+.image-container3 {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-container3:hover {
+    background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/L3D4P_L3D5T_2-430x645.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+     box-shadow: 0 4px 9px 0 red;
+}
+
+.image-container4 {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-container4:hover {
+    background-image: url("https://www.chhooze.com/wp-content/uploads/2024/03/L1D1_Rusty_2-430x645.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+     box-shadow: 0 4px 9px 0 red;
+
+}
+
+.image-container5 {
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.image-container5:hover {
+    background-image: url("https://www.chhooze.com/wp-content/uploads/2025/04/D-3169_2-430x645.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+     box-shadow: 0 4px 9px 0 red;
+    
+}
+
+.product-content {
+    padding: 15px;
+}
+
+.item-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+     /* shop section 2  */
+
+ .second-section {
+     margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+   
+    position: relative;
+}
+.section2-box {
+    width: 210px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 25px 10px 20px 10px;
+    position: relative;
+    box-shadow: 0 9px 9px 0 black;
+    transition: 0.3s ease;
+    overflow: hidden;
+}
+
+.shop-box2 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1.6rem;
+    margin-bottom: 6.6rem;
+}
+.product-content {
+    padding: 15px;
+}
+
+.item-name {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img.img-default {
+    width: 210px;
+
+}
+
+
+/*FOOTER SECTION*/
+
+
+
+footer {
+    background-color: #df1869;
+    height: auto;
+}
+
+.scroll-top {
+    float: right;
+    position: fixed;
+    bottom: 1rem;
+    background-color: white;
+    right: 2rem;
+    border-radius: 50%;
+    padding: 4px 6px 4px 6px;
+    font-size: 1rem;
+}
+
+.scroll-top a {
+    color: black;
+}
+
+.scroll-top a:hover {
+    color: red;
+}
+
+.scroll-top:hover {
+    color: red;
+    box-shadow: 0 5px 10px 0 blue;
+    background-color: greenyellow;
+}
+
+.animated-link2 {
+    color: #5B5A5A;
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.animated-link2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom:0;
+    top: 2rem;
+    width: 0;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    transition: width 0.9s ease;
+}
+
+.animated-link2:hover::before {
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3rem;
+}
+
+.footer-para p {
+    color: white;
+    width: 289px;
+    line-height: 1.7rem;
+    font-size: 16px;
+    text-align: justify;
+    margin-bottom: 1.4rem;
+}
+
+.footer-para {
+    width: 289px;
+    height: 235px;
+}
+
+.footer-para ul li {
+    list-style: none;
+    font-size: 1rem;
+    padding-top: 0.8rem;
+}
+
+.footer-mail .number,
+.email {
+    padding: 0px 2px 0px 8px;
+    word-spacing: 6px;
+    font-size: 1.2rem;
+}
+.footer-mail a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer-mail i {
+    color: white;
+}
+
+.women-box p {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.women-box {
+    width: 234px;
+    height: 350px;
+}
+.women-box ul li {
+    list-style: none;
+    color: white;
+    margin-top: 0.77rem;
+    font-size: 16px;
+}
+
+.women-box a {
+    text-decoration: none;
+}
+
+.valuable-box p {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.valuable-box {
+    width: 234px;
+    height: 350px;
+}
+
+.valuable-box ul li {
+    list-style: none;
+    color: white;
+    margin-top: 0.77rem;
+    font-size: 16px;
+}
+
+.valuable-box a {
+    text-decoration: none;
+}
+
+.quick-help p {
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.quick-help ul li {
+    list-style: none;
+    color: white;
+    margin-top: 0.77rem;
+    font-size: 16px;
+
+}
+
+.quick-help a {
+    text-decoration: none;
+}
+
+.quick-help .btn {
+    padding: 12px 22px;
+    background-color: white;
+    color: #df1869;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2rem;
+    font-size: 16px;
+    cursor: pointer;
+}
+.quick-help .btn:hover{
+     box-shadow: 0 4px 9px 0 rgb(106, 0, 255);
+}
+.footer-icon a {
+    color: white;
+    font-size: 2.2rem;
+    padding: 0px 4px 0px 4px;
+}
+
+
+.footer-icon .instagram:hover {
+    color: white;
+    background-color: deeppink;
+}
+.footer-icon .facebook:hover{
+   color: #3b7dd3;
+}
+
+.footer-icon .youtube:hover {
+    color: white;
+    background-color: red;
+}
+
+.footer-img {
+    padding: 3rem;
+    text-align: center;
+    border-top: 1px solid white;
+    margin-top: 2rem;
+}
+
+.footer-img img {
+    height: auto;
+    max-width: 100%;
+    position: sticky;
+    width: 53%;
+}
+
+.footer-img p {
+    color: white;
+    padding-top: 0.6rem;
+}
+
+.footer-end {
+    width: 100%;
+    height: 83px;
+    display: flex;
+}
+
+.left {
+    display: flex;
+    width: 50%;
+    align-items: center;
+}
+
+.left-link a {
+    text-decoration: none;
+    color: white;
+}
+
+.left-link {
+    border-right: 2px solid white;
+    padding: 0px 12px 1px 8px;
+}
+
+.left-link1 a {
+    border-right: none;
+    color: white;
+    text-decoration: none;
+    padding: 0px 12px 1px 8px;
+}
+
+.right a {
+    border-right: none;
+    color: white;
+    text-decoration: none;
+    padding: 0px 12px 1px 8px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 50%;
+}
+
+/*Footer closed*/
+::-webkit-scrollbar {
+    width: 5px;
+   
+}
+
+
+::-webkit-scrollbar-track {
+    background: rgb(253, 75, 229);
+    background-clip: content-box;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: rgb(251, 255, 0);
+    border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(238, 238, 238);
+     box-shadow: 0 4px 15px 25px rgb(4, 0, 255);
+}
+
+.bottom-nav {
+    display: none;
+}
+  .slider {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.slider img {
+    height: 260px;
+    width: 100px;
+    border-radius: 10px;
+    transition: transform 0.3s, width 0.3s, height 0.3s;
+    
+    margin-bottom: 3rem;
+}
+
+.slider img:hover {
+    transform: scale(1.1);
+    width: 192px;
+    height: 310px;
+       box-shadow: 0 2px 5px 2px rgb(22, 26, 252);
+           animation: slide 10s linear infinite;
+}
+@keyframes slide{
+    0% {
+         box-shadow: 0 1px 5px 5px rgb(4, 0, 255);
+    }
+
+    25% {
+        box-shadow: 0 4px 15px 10px rgb(255, 0, 0);
+    }
+
+    50% {
+        box-shadow: 0 4px 15px 5px rgb(43, 255, 0);
+    }
+
+    75% {
+        box-shadow: 0 4px 15px 10px rgb(253, 0, 198);
+    }
+
+    100% {
+         box-shadow: 0 4px 15px 15px rgb(0, 255, 157);
+    }
+}
